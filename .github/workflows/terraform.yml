@@ -20,12 +20,15 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        shell: bash
 
       - name: Terraform Plan
         run: terraform plan
+        shell: bash
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
         env:
           TF_VAR_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           TF_VAR_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        shell: bash
